@@ -26,23 +26,3 @@ model InterestedUser {
   @@index([name])
   @@map("interested_users")
 }
-
-
-
-model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  diaries   Diary[]
-  createdAt DateTime @default(now())
-}
-
-model Diary {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  title     String?
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
