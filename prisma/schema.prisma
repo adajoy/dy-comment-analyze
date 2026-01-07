@@ -12,6 +12,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  schemas  = ["dy"]
 }
 
 model InterestedUser {
@@ -25,4 +26,5 @@ model InterestedUser {
   @@index([createdAt])
   @@index([name])
   @@map("interested_users")
+  @@schema("dy")
 }
